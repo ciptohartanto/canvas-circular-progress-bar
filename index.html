@@ -18,15 +18,36 @@
 </body>
 <script type="module">
   import CircularBar from './CircularBar.js';
-  
+  // import getAPI from './fetch.js'
   const myCircularBar = new CircularBar(
     { 
-      num: 4,
+      num: 0,
       circumference: 150,
       fontsize: 55,
       circleColor: 'red'
     });
     myCircularBar.init();
+   
+  const getAPI = () => {
+  let mydata
+  const x = fetch('https://reqres.in/api/users').then(res => {
+    if (res.ok) {
+      return res.json()
+    } else {
+      console.log('error')
+      return
+    }
+  }).then(data => {
+    mydata = data
+    console.log(data)
+  } )
+  console.log(x)
+  return mydata
+
+  }
+  console.log(getAPI())
+  
+
 </script>
 
 </html>
