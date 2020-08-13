@@ -12,6 +12,8 @@ export default class CircularBar {
     this.canvas = document.getElementById('canvas').getContext('2d')
     this.textWidth = 120
     this.textHeight = 70
+    this.canvasWidth = document.getElementById('canvas').getAttribute('width')
+    this.canvasHeight = document.getElementById('canvas').getAttribute('height')
     this.centerPos = document.getElementById('canvas').getAttribute('width') / 2
     this.options = Object.assign(this.defaults, options)
   }
@@ -29,13 +31,16 @@ export default class CircularBar {
     this.canvas.closePath()
   }
   createInnerCircle() {
-    this.animateCircle(this.options.num)
+    const numberedNum = Number(this.options.num)
+    this.animateCircle(numberedNum)
   }
   createNumText() {
     this.canvas.font = `${this.options.fontsize}px helvetica`
     this.canvas.textAlign = 'center'
     this.canvas.textBaseline = 'middle'
-    this.animateText(this.options.num)
+    const numberedNum = Number(this.options.num)
+
+    this.animateText(numberedNum)
   }
   animateText(num) {
     let start = setInterval(() => {

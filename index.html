@@ -15,38 +15,40 @@
   <canvas id="canvas"
     width="600"
     height="600"></canvas>
+  <form class="form"
+    id="form">
+    <input class="form-input"
+      id="num"
+      type=""
+      placeholder="Num"></input>
+    <input class="form-input"
+      id="limit"
+      type=""
+      placeholder="Limit"></input>
+    <button id="button"
+      type="submit">U P D A T E</button>
+  </form>
 </body>
 <script type="module">
   import CircularBar from './CircularBar.js';
-  // import getAPI from './fetch.js'
-  const myCircularBar = new CircularBar(
-    { 
-      num: 0,
-      circumference: 150,
-      fontsize: 55,
-      circleColor: 'red'
-    });
-    myCircularBar.init();
-   
-  const getAPI = () => {
-  let mydata
-  const x = fetch('https://reqres.in/api/users').then(res => {
-    if (res.ok) {
-      return res.json()
-    } else {
-      console.log('error')
-      return
-    }
-  }).then(data => {
-    mydata = data
-    console.log(data)
-  } )
-  console.log(x)
-  return mydata
-
-  }
-  console.log(getAPI())
+  const form = document.getElementById("form")
+  const num = document.getElementById("num")
+  const limit = document.getElementById("limit")
   
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const myCircularBar = new CircularBar(
+      { 
+        num: num.value,
+        limit: limit.value,
+        circumference: 150,
+        fontsize: 55,
+        circleColor: 'red'
+      }
+    );
+    myCircularBar.init();
+  });
 
 </script>
 

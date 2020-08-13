@@ -9,3 +9,13 @@ canvas {
   display: block;
   margin: auto;
 }
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  padding: 5px;
+  width: 100px;
+}
