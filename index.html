@@ -34,7 +34,11 @@
   const form = document.getElementById("form")
   const num = document.getElementById("num")
   const limit = document.getElementById("limit")
-  
+
+  const initCircularBar = new CircularBar( {
+    circumference: 150
+  } );
+  initCircularBar.init();
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -42,9 +46,7 @@
       { 
         num: num.value,
         limit: limit.value,
-        circumference: 150,
-        fontsize: 55,
-        circleColor: 'red'
+        circumference: 150
       }
     );
     myCircularBar.init();
